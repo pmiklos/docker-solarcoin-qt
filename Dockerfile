@@ -18,11 +18,9 @@ RUN	apt-get install -y libfreetype6 libfontconfig1 libice6 libsm6 libxi6
 RUN	apt-get install -y dbus
 
 RUN	groupadd --gid 1000 solarcoin \
-	&& useradd --uid 1000 --gid solarcoin --shell /bin/bash --create-home solarcoin \
-	&& mkdir /home/solarcoin/.solarcoin \
-	&& chown -R solarcoin:solarcoin /home/solarcoin
+	&& useradd --uid 1000 --gid solarcoin --shell /bin/bash --create-home solarcoin
 
 USER	solarcoin
-VOLUME	/home/solarcoin/.solarcoin
+VOLUME	/home/solarcoin
 
-CMD	["/bin/bash", "-c", "LD_LIBRARY_PATH=/SolarCoin_2.1.8_64bit/libs/ ./solarcoin-qt"]
+CMD	["/bin/bash", "-c", "LD_LIBRARY_PATH=/SolarCoin_2.1.8_64bit/libs/ QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb ./solarcoin-qt"]
