@@ -29,5 +29,7 @@ USER	solarcoin
 VOLUME	/home/solarcoin
 WORKDIR	/home/solarcoin
 
-CMD	["/bin/bash", "-c", "LD_LIBRARY_PATH=/opt/solarcoin/libs/ QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb /opt/solarcoin/solarcoin-qt"]
+ENV	LD_LIBRARY_PATH=/opt/solarcoin/libs
+ENV	QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
 
+CMD	["/opt/solarcoin/solarcoin-qt"]
